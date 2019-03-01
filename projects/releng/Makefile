@@ -8,7 +8,7 @@ ps:
 	sudo podman ps -pa
 up:
 	sudo podman pod create --name releng-dev
-	sudo podman run -it -d --name releng --pod releng-dev -v $(ROOTDIR)/releng:/srv yudocaa/releng
+	sudo podman run -it -d --net host --name releng --pod releng-dev -v $(ROOTDIR)/releng:/srv yudocaa/releng
 shell:
 	sudo podman exec -it releng bash
 
